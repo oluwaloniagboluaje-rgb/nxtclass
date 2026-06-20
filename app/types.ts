@@ -1,0 +1,56 @@
+export type complexProduct =     {
+      "id": number,
+      "title": string,
+      "description": string,
+      "category": string,
+      "price": number,
+      "discountPercentage": number,
+      "rating": number,
+      "stock": number,
+      "tags": string[],
+      "brand": string,
+      "sku": string,
+      "weight": number,
+      "dimensions": {
+        "width": number,
+        "height": number,
+        "depth": number
+      },
+      "warrantyInformation": string,
+      "shippingInformation": string,
+      "availabilityStatus": string,
+      "reviews": RatingDeets[],
+      "returnPolicy": string,
+      "minimumOrderQuantity": number,
+      "meta": {
+        "createdAt": string,
+        "updatedAt": string,
+        "barcode": string,
+        "qrCode": string
+      },
+      "thumbnail": string,
+      "images": string[]
+    }
+
+    type RatingDeets={
+        
+          "rating": number,
+          "comment": string,
+          "date": string,
+          "reviewerName": string,
+          "reviewerEmail": string
+    }
+
+
+    type Post = {
+    "id": number,
+    "title": string,
+    "body": string,
+    "tags": string[],
+    "length": number,
+    "reactions": [
+        "likes": number,
+        "dislikes": number,
+    ],
+    "views": number
+}
