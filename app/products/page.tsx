@@ -1,7 +1,9 @@
 import React from 'react'
 import { complexProduct } from '../types'
+import { dbConnect } from '../libs/dbconnect'
 
 const Products = async () => {
+    await dbConnect()
     const data = await fetch('https://dummyjson.com/products? //limit= 50')
     const products = await data.json()
 
@@ -28,7 +30,7 @@ const Products = async () => {
                                     {prod.title}
                                 </h2>
                             </div>
-                            {prod.thumbnail && (
+                         {prod.thumbnail && (
                                 <img
                                     src={prod.thumbnail}
                                     alt={prod.title}

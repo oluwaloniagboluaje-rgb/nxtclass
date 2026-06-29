@@ -1,9 +1,11 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
+import SkeletonLoader from '../components/SkeletonLoader'
+import Loading from '../loading'
 
 const Page = () => {
-    const [posts, setPosts] = useState<Post[]>([])
+    const [posts, setPosts] = useState<post[]>([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -16,14 +18,7 @@ const Page = () => {
         fetchPosts()
     }, [])
 
-    if (loading) return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
-            <div className="text-center">
-                <div className="w-10 h-10 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                <p className="text-gray-500 text-sm">Loading Blogs....</p>
-            </div>
-        </div>
-    )
+    if (loading) return <SkeletonLoader />
 
     return (
         <div className="min-h-screen bg-gray-50 px-6 py-10">
@@ -34,7 +29,7 @@ const Page = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-                {posts.map((post: Post) => (
+                {posts.map((post: post) => (
                     <div
                         key={post.id}
                         className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col justify-between hover:shadow-md transition-shadow duration-300"
@@ -82,7 +77,9 @@ const Page = () => {
                                 👁️ {post.views} views
                             </span>
                         </div>
+                        
                     </div>
+
                 ))}
             </div>
         </div>

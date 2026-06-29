@@ -49,8 +49,17 @@ export type complexProduct =     {
     "tags": string[],
     "length": number,
     "reactions": [
-        "likes": number,
-        "dislikes": number,
+        likes: number,
+        dislikes : number,
     ],
     "views": number
+}
+
+
+export type User ={
+  _id?:string,
+  firstname:string,
+  lastname:string,
+  email:string,
+  password:string
 }
